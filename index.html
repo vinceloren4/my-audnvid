@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Why I Chose BSIT</title>
+  <!-- Favicon (fixed for PNG) -->
+  <link rel="icon" href="fav.icon.png" type="image/png">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans&display=swap" rel="stylesheet" />
+  <style>
+    /* Reset */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      color: #ddd;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: linear-gradient(135deg, #121212 0%, #2c2c2c 100%);
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Decorative circles */
+    body::before, body::after {
+      content: "";
+      position: fixed;
+      border-radius: 50%;
+      opacity: 0.15;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    body::before {
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle at center, #555555, transparent 70%);
+      top: -100px;
+      left: -100px;
+    }
+
+    body::after {
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle at center, #000000, transparent 70%);
+      bottom: -150px;
+      right: -150px;
+    }
+
+    /* Header with logo */
+    header {
+      background-color: rgba(30, 30, 30, 0.95);
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.7);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    header svg {
+      width: 36px;
+      height: 36px;
+      fill: #ffcc00;
+      flex-shrink: 0;
+    }
+
+    header h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 1.8rem;
+      color: #ffcc00;
+      margin: 0;
+      user-select: none;
+    }
+
+    /* Navigation */
+    nav.nav {
+      background-color: rgba(30, 30, 30, 0.95);
+      padding: 0.75rem 2rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.7);
+      position: sticky;
+      top: 64px; /* header height */
+      z-index: 9;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 1.1rem;
+      user-select: none;
+    }
+
+    nav.nav a {
+      color: #bbb;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      background: rgba(255 255 255 / 0.05);
+      box-shadow: inset 0 0 5px rgba(255 255 255 / 0.1);
+      transition: 
+        color 0.3s ease, 
+        background-color 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.2s ease;
+    }
+
+    nav.nav a:hover,
+    nav.nav a:focus {
+      color: #ffcc00;
+      background-color: #444;
+      box-shadow: 0 0 8px #ffcc00;
+      transform: scale(1.1);
+      outline: none;
+    }
+
+    /* Main content */
+    main.page {
+      flex-grow: 1;
+      max-width: 900px;
+      margin: 3rem auto 4rem;
+      background: rgba(40, 40, 40, 0.95);
+      padding: 3rem 4rem;
+      border-radius: 16px;
+      box-shadow: 0 12px 36px rgba(0,0,0,0.8);
+      position: relative;
+      z-index: 1;
+      color: #ddd;
+      font-size: 1.15rem;
+      letter-spacing: 0.02em;
+      user-select: text;
+    }
+
+    h1 {
+      color: #ffcc00;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+      border-bottom: 3px solid #ffcc00;
+      padding-bottom: 0.3rem;
+      letter-spacing: 2px;
+      text-shadow: 0 0 8px #ffcc00;
+    }
+
+    hr {
+      border: none;
+      border-top: 3px solid #ffcc00;
+      margin: 1rem 0 2rem;
+      width: 80px;
+      border-radius: 2px;
+      box-shadow: 0 0 10px #ffcc00;
+    }
+
+    p {
+      margin-bottom: 1.5rem;
+      color: #ccc;
+      transition: color 0.3s ease;
+    }
+
+    p:hover {
+      color: #ffcc00;
+    }
+
+    b, strong {
+      color: #fff;
+    }
+
+    i, em {
+      color: #aaa;
+      font-style: italic;
+    }
+
+    mark {
+      background-color: #555;
+      color: #eee;
+      padding: 0 6px;
+      border-radius: 4px;
+      box-shadow: inset 0 0 6px #333;
+    }
+
+    del {
+      color: #777;
+      text-decoration-thickness: 2px;
+    }
+
+    ins {
+      text-decoration: none;
+      border-bottom: 2px solid #999;
+      color: #999;
+      font-weight: 600;
+    }
+
+    small {
+      font-size: 0.85rem;
+      color: #999;
+    }
+
+    sub {
+      font-size: 0.75rem;
+      vertical-align: sub;
+      color: #bbb;
+    }
+
+    sup {
+      font-size: 0.75rem;
+      vertical-align: super;
+      color: #bbb;
+    }
+
+    /* Callout box */
+    .callout {
+      background: #222;
+      border-left: 6px solid #ffcc00;
+      padding: 1rem 1.5rem;
+      margin: 2rem 0;
+      font-style: italic;
+      color: #eee;
+      box-shadow: 0 0 10px rgba(255, 204, 0, 0.3);
+      user-select: none;
+    }
+
+    /* Footer */
+    footer {
+      background-color: rgba(30, 30, 30, 0.95);
+      color: #666;
+      font-size: 0.9rem;
+      text-align: center;
+      padding: 1rem 2rem;
+      border-top: 1px solid #444;
+      user-select: none;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    footer svg {
+      width: 24px;
+      height: 24px;
+      fill: #666;
+      transition: fill 0.3s ease;
+      cursor: pointer;
+    }
+
+    footer svg:hover,
+    footer svg:focus {
+      fill: #ffcc00;
+      outline: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 700px) {
+      main.page {
+        padding: 2rem 2rem;
+        margin: 2rem 1rem 3rem;
+      }
+
+      nav.nav {
+        flex-wrap: wrap;
+        gap: 1rem;
+        padding: 1rem;
+      }
+
+      nav.nav a {
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+      }
+
+      h1 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <!-- Simple code icon SVG -->
+    <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false" xmlns="http://www.w3.org/2000/svg">
+      <path d="M8.59 16.34L13.17 12 8.59 7.66 10 6.25l6 6-6 6z"/>
+    </svg>
+    <h1>Why I Chose BSIT</h1>
+  </header>
+
+  <!-- Navigation (connected to home and hobby) -->
+  <nav class="nav" aria-label="Main navigation">
+    <a href="index.html">Home</a>
+    <a href="vince.html">Hobby</a>
+    <a href="audionvideo">Audio and video</a>
+  </nav>
+
+  <!-- Content -->
+  <main class="page" tabindex="0">
+    <h1>Why I Chose BSIT</h1>
+    <hr />
+    <p>
+      I chose <b>BSIT</b> because ever since I was in high school, I was inspired by watching my cousin do <strong>coding and programming</strong>.
+      That's why I wanted to take an <i>I.T. course</i> when I entered college.
+    </p>
+    <p>
+      However, after graduating from junior high school and moving into senior high school, my mind changed.
+      I <em>started wanting to pursue nursing instead</em>.
+      But when I graduated from senior high school, my mom couldn't afford to send me to a nursing course.
+      That's why I went back to my original plan and chose the <mark>I.T. course</mark>.
+    </p>
+
+    <div class="callout" aria-label="Important note">
+      "I.T. was actually my first choice from the beginning, and I don't regret it."
+    </div>
+
+    <p>
+      If you ask me whether I regret taking BSIT, my answer is <strong>no</strong> because I.T. was actually my <small>first choice</small> from the beginning.
+    </p>
+    <p>
+      Another reason I chose BSIT is because of the opportunities it offers.
+      We live in a digital age where technology plays a vital role in almost every industry.
+      From <del>only business</del> <ins>healthcare and business</ins> to education and entertainment, IT professionals are in demand.
+    </p>
+    <p>
+      Lastly, I chose BSIT because I enjoy learning how to solve problems. Programming challenges me to think critically and creatively.
+      It's not always easy, but the satisfaction I get from making a program work or fixing an error motivates me to keep learning and improving.
+      For example, I learned that H<sub>2</sub>O means water, and x<sup>2</sup> means x squared—just like in coding, where symbols and details matter.
+    </p>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <span>&copy; 2024 My Personal Site</span>
+    <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false" xmlns="http://www.w3.org/2000/svg">
+      <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+    </svg>
+  </footer>
+</body>
+</html>

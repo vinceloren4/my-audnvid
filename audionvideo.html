@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio And Video - Christmas Edition</title>
+    <!-- Favicon (fixed for PNG) -->
+    <link rel="icon" href="fav.icon.png" type="image/png">
+    <style>
+        body {
+            background: linear-gradient(to bottom, #ff0000, #008000); 
+            color: white; 
+            font-family: Arial, sans-serif; 
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2em;
+            color: #ffd700; 
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5); 
+        }
+        .media-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50vh;
+            margin-bottom: 20px;
+            border: 2px solid #ffffff; 
+            border-radius: 10px; 
+            background: rgba(255, 255, 255, 0.1); 
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); 
+        }
+        video, audio {
+            border-radius: 5px; 
+        }
+        nav.nav {
+            background-color: rgba(218, 1, 1, 0.95); 
+            padding: 0.75rem 2rem;
+            box-shadow: 0 2px 5px rgba(5, 5, 5, 0.7);
+            position: sticky;
+            top: 0;
+            z-index: 9;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            user-select: none;
+            margin-bottom: 20px; 
+        }
+        nav.nav a {
+            color: #ffd700; 
+            text-decoration: none;
+            transition: color 0.3s ease; 
+        }
+        nav.nav a:hover {
+            color: #ffffff; 
+        }
+    </style>
+</head>
+<body>
+    
+    <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="vince.html">Hobbies</a>
+        <a href="audionvideo.html">Audio and Video</a>
+    </nav>
+
+    <h1>🎄 Merry Christmas! 🎄</h1>
+    
+    <div class="media-container">
+        <video width="320" height="240" controls autoplay>
+            <source src="Kai.mp4" type="video/mp4">
+            <source src="Kai.mp4" type="video/webm">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    
+    <div class="media-container">
+        <audio controls>
+            <source src="Wham.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+</body>
+</html>

@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Hobby: Watching Movies</title>
+  <!-- Favicon (fixed for PNG) -->
+   <link rel="icon" href="fav.icon.png" type="image/png">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <style>
+    /* Reset */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      color: #ddd;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: linear-gradient(135deg, #121212 0%, #2c2c2c 100%);
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Decorative circles */
+    body::before, body::after {
+      content: "";
+      position: fixed;
+      border-radius: 50%;
+      opacity: 0.15;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    body::before {
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle at center, #555555, transparent 70%);
+      top: -100px;
+      left: -100px;
+    }
+
+    body::after {
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle at center, #000000, transparent 70%);
+      bottom: -150px;
+      right: -150px;
+    }
+
+    /* Header with logo */
+    header {
+      background-color: rgba(30, 30, 30, 0.95);
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.7);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    header svg {
+      width: 36px;
+      height: 36px;
+      fill: #ffcc00;
+      flex-shrink: 0;
+    }
+
+    header h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 1.8rem;
+      color: #ffcc00;
+      margin: 0;
+      user-select: none;
+    }
+
+    /* Navigation */
+    nav.nav {
+      background-color: rgba(30, 30, 30, 0.95);
+      padding: 0.75rem 2rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.7);
+      position: sticky;
+      top: 64px; /* header height */
+      z-index: 9;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 1.1rem;
+      user-select: none;
+    }
+
+    nav.nav a {
+      color: #bbb;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      background: rgba(255 255 255 / 0.05);
+      box-shadow: inset 0 0 5px rgba(255 255 255 / 0.1);
+      transition: 
+        color 0.3s ease, 
+        background-color 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.2s ease;
+    }
+
+    nav.nav a:hover,
+    nav.nav a:focus {
+      color: #ffcc00;
+      background-color: #444;
+      box-shadow: 0 0 8px #ffcc00;
+      transform: scale(1.1);
+      outline: none;
+    }
+
+    /* Main content */
+    main.page {
+      flex-grow: 1;
+      max-width: 900px;
+      margin: 3rem auto 4rem;
+      background: rgba(40, 40, 40, 0.95);
+      padding: 3rem 4rem;
+      border-radius: 16px;
+      box-shadow: 0 12px 36px rgba(0,0,0,0.8);
+      position: relative;
+      z-index: 1;
+      color: #ddd;
+      font-size: 1.15rem;
+      letter-spacing: 0.02em;
+      user-select: text;
+    }
+
+    h1 {
+      color: #ffcc00;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+      border-bottom: 3px solid #ffcc00;
+      padding-bottom: 0.3rem;
+      letter-spacing: 2px;
+      text-shadow: 0 0 8px #ffcc00;
+    }
+
+    h2 {
+      color: #ffcc00;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #ffcc00;
+      padding-bottom: 0.5rem;
+      letter-spacing: 1px;
+      text-shadow: 0 0 6px #ffcc00;
+    }
+
+    hr {
+      border: none;
+      border-top: 3px solid #ffcc00;
+      margin: 1rem 0 2rem;
+      width: 80px;
+      border-radius: 2px;
+      box-shadow: 0 0 10px #ffcc00;
+    }
+
+    p {
+      margin-bottom: 1.5rem;
+      color: #ccc;
+      transition: color 0.3s ease;
+    }
+
+    p:hover {
+      color: #ffcc00;
+    }
+
+    b, strong {
+      color: #fff;
+    }
+
+    i, em {
+      color: #aaa;
+      font-style: italic;
+    }
+
+    mark {
+      background-color: #555;
+      color: #eee;
+      padding: 0 6px;
+      border-radius: 4px;
+      box-shadow: inset 0 0 6px #333;
+    }
+
+    del {
+      color: #777;
+      text-decoration-thickness: 2px;
+    }
+
+    ins {
+      text-decoration: none;
+      border-bottom: 2px solid #999;
+      color: #999;
+      font-weight: 600;
+    }
+
+    small {
+      font-size: 0.85rem;
+      color: #999;
+    }
+
+    sub {
+      font-size: 0.75rem;
+      vertical-align: sub;
+      color: #bbb;
+    }
+
+    sup {
+      font-size: 0.75rem;
+      vertical-align: super;
+      color: #bbb;
+    }
+
+    /* Genre Cards */
+    .genre-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .genre-card {
+      background: rgba(50, 50, 50, 0.8);
+      border: 1px solid #444;
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    }
+
+    .genre-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 24px rgba(255, 204, 0, 0.2);
+      border-color: #ffcc00;
+    }
+
+    .genre-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
+    .genre-card h3 {
+      color: #ffcc00;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .genre-card ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .genre-card li {
+      padding: 0.25rem 0;
+      color: #ccc;
+    }
+
+    .genre-card li::before {
+      content: "🎬 ";
+      font-weight: bold;
+    }
+
+    /* Callout box */
+    .callout {
+      background: #222;
+      border-left: 6px solid #ffcc00;
+      padding: 1rem 1.5rem;
+      margin: 2rem 0;
+      font-style: italic;
+      color: #eee;
+      box-shadow: 0 0 10px rgba(255, 204, 0, 0.3);
+      user-select: none;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      margin-bottom: 3rem;
+      padding: 2rem;
+      background: rgba(255, 204, 0, 0.05);
+      border-radius: 12px;
+      border: 1px solid rgba(255, 204, 0, 0.2);
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      color: #ddd;
+    }
+
+    /* Footer */
+    footer {
+      background-color: rgba(30, 30, 30, 0.95);
+      color: #666;
+      font-size: 0.9rem;
+      text-align: center;
+      padding: 1rem 2rem;
+      border-top: 1px solid #444;
+      user-select: none;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    footer svg {
+      width: 24px;
+      height: 24px;
+      fill: #666;
+      transition: fill 0.3s ease;
+      cursor: pointer;
+    }
+
+    footer svg:hover,
+    footer svg:focus {
+      fill: #ffcc00;
+      outline: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 700px) {
+      main.page {
+        padding: 2rem 2rem;
+        margin: 2rem 1rem 3rem;
+      }
+
+      nav.nav {
+        flex-wrap: wrap;
+        gap: 1rem;
+        padding: 1rem;
+      }
+
+      nav.nav a {
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+      }
+
+      h1 {
+        font-size: 2.2rem;
+      }
+
+      .genre-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      header {
+        padding: 1rem;
+      }
+
+      nav.nav {
+        padding: 0.75rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <!-- Movie icon SVG (film reel) -->
+    <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false" xmlns="http://www.w3.org/2000/svg">
+      <path d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z"/>
+    </svg>
+    <h1>My Hobby: Watching Movies</h1>
+  </header>
+
+  <!-- Navigation -->
+  <nav class="nav" > 
+    <a href="index.html">Home</a>
+    <a href="vince.html">Hobbies</a>
+    <a href="audionvideo">Audio and video</a>
+  </nav>
+
+  <!-- Content -->
+  <main class="page" tabindex="0">
+    <h1>Watching Movies</h1>
+    <hr />
+    
+    <div class="hero">
+      <p>
+        Movies have been my ultimate escape and source of inspiration. From epic adventures to heartfelt dramas, they transport me to different worlds and help me unwind after a busy day.
+      </p>
+    </div>
+
+    <p>
+      I discovered my love for watching movies during my high school years when I started binge-watching classic films with my friends. What began as a casual pastime has become a <strong>true passion</strong> that I cherish deeply. Movies aren't just entertainment for me—they're a way to explore emotions, cultures, and ideas that I might not encounter in everyday life.
+    </p>
+
+    <h2>Favorite Genres</h2>
+    <hr />
+    <p>
+      I enjoy a wide variety of genres, but I always find myself drawn to stories that challenge me to think or feel deeply. Whether it's the adrenaline rush of action sequences or the quiet introspection of dramas, each genre offers something unique.
+    </p>
+
+    <div class="genre-grid">
+      <div class="genre-card">
+        <img src="11.jpg" 
+             alt="Action movie scene with explosions and heroic characters in dynamic poses" />
+        <h3>Action & Adventure</h3>
+        <p>High-octane films that keep my heart racing from start to finish.</p>
+        <ul>
+          <li>Superhero blockbusters</li>
+          <li>Thrilling chase scenes</li>
+          <li>Epic heroic journeys</li>
+        </ul>
+      <div class="genre-card">
+        <img src="12.avif" 
+             alt="Dramatic movie scene with emotional characters in cinematic lighting" />
+        <h3>Drama</h3>
+        <p>Stories that tug at the heartstrings and make me reflect on life.</p>
+        <ul>
+          <li>Character-driven narratives</li>
+          <li>Real-life inspired tales</li>
+          <li>Deep emotional themes</li>
+        </ul>
+      </div>
+      <div class="genre-card">
+        <img src="13.jpg"
+             alt="Sci-fi movie scene with futuristic cityscape and advanced technology" />
+        <h3>Sci-Fi & Fantasy</h3>
+        <p>Imaginative worlds that expand my horizons and spark creativity.</p>
+        <ul>
+          <li>Space exploration epics</li>
+          <li>Time travel mysteries</li>
+          <li>Magical fantasy realms</li>
+        </ul>
+      </div>
+    </div>
+    <p>
+      One thing I love about movies is how they bring people together. I often host movie nights with friends or family, where we discuss the plot twists and character arcs long after the credits roll. It's not just about watching; it's about <em>experiencing</em> stories that resonate with our own lives.
+    </p>
+
+    <p>
+      If I had to pick my all-time favorite, it would be a tough choice between <mark>Inception</mark> for its mind-bending sci-fi elements and <strong>The Shawshank Redemption</strong> for its powerful message of hope. Movies like these remind me why I fell in love with cinema in the first place—they challenge me to think critically, just like solving problems in my studies.
+    </p>
+
+    <p>
+      In today's digital age, streaming services have made it easier than ever to discover new films from around the world. From Hollywood blockbusters to independent gems, there's always something new to explore. Watching movies has taught me patience (waiting for that perfect plot reveal) and empathy (understanding diverse viewpoints), skills that I carry into my daily life.
+    </p>
+
+    <p>
+      Sometimes I even analyze films like a <small>film critic</small>, noting the cinematography or soundtrack. For instance, the way light and shadow create tension in thrillers is fascinating—much like how <del>simple</del> <ins>complex algorithms</ins> build solutions in programming.
+    </p>
+  </main>
+</body>
+</html>
